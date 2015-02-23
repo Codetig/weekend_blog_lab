@@ -1,0 +1,11 @@
+<p><%= link_to "Home", authors_path %> | <%= link_to "Posts by #{@author.last_name}", author_posts_path(@author) %></p>
+<div class="container">
+<h3><%= @post.title %></h3>
+
+<p><b>Author Name: </b><%= @author.first_name + " " + @author.last_name %></p>
+<p><b>Category: </b><%= @post.category %> </p>
+<h4>Body: </h4>
+<p id="post"> <%= @post.body %> </p>
+
+<p><%= link_to "Edit Post", edit_post_path(@post) %> | <%= link_to "Delete Post", post_path(@post), method:"delete", data:{confirm: "Are you sure you want to delete \"#{@author.last_name}\" and all his posts?"} %></p>
+</div>

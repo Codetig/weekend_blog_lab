@@ -1,0 +1,24 @@
+<p><%= link_to "Home", authors_path %></p> <br>
+<% if @post.errors.any? %>
+  <% @post.errors.full_messages.each do |error| %>
+  <p class="text-danger">
+      <%= error %>
+  </p>
+  <% end %>
+  <% end %>
+
+
+<h2>Edit <%= @post.title %> <small>by <%= @author.first_name %> <%= @author.last_name %></small></h2>
+
+<div class="container">
+<%= form_for @post do |f| %>
+<p><%= f.label :title, "Title: " %>
+<%= f.text_field :title %></p>
+<p><%= f.label :category, "Category: " %>
+<%= f.text_field :category %></p>
+<b><%= f.label :body, "Post: " %></b><br>
+<p><%= f.text_area :body %></p>
+<%= f.submit "Update" %>
+<% end %>
+</div>
+

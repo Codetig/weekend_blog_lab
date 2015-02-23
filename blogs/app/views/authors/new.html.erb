@@ -1,0 +1,19 @@
+<%= link_to "Home", authors_path %>
+
+<% if @author.errors.any? %>
+  <% @author.errors.full_messages.each do |error| %>
+  <p class="text-danger">
+      <%= error %>
+  </p>
+  <% end %>
+  <% end %>
+
+  <h2>New Author</h2>
+<div>
+  <%= form_for @author do |f| %>
+  <%= f.label :first_name %> <%= f.text_field :first_name %> <br>
+  <%= f.label :last_name %> <%= f.text_field :last_name %> <br>
+  <%= f.label :age %> <%= f.text_field :age %> <br>
+  <%= f.submit %>
+  <% end %>
+</div>

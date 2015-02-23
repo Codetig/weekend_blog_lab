@@ -1,0 +1,28 @@
+<h1>List of Authors</h1>
+
+<%= link_to "Add Author", new_author_path %> <br><br>
+ 
+<div>
+<table class="table table-hover">
+  <tr>
+    <th>Names</th>
+    <th>Author Details</th>
+    <th>Edit Author</th>
+  </tr>
+  <% @authors.each do |author| %>
+  <tr>
+    <td>
+    <%= author.last_name %>, <small><%= author.first_name %></small>
+    </td>
+    
+    <td><small>
+      <%= link_to "Details", author_path(author) %>
+    </small></td>
+    <td><small>
+    <%= link_to "Edit", edit_author_path(author) %>
+    </small></td>
+
+  </tr>
+  <% end %>
+</table>
+</div>

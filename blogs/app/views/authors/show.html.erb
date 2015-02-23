@@ -1,0 +1,12 @@
+<%= link_to "Home", authors_path %>
+
+<h1>Author</h1>
+<div>
+<ul>
+  <li>First Name: <%= @author.first_name %></li>
+  <li>Last Name: <%= @author.last_name %></li>
+  <li>Age: <%= @author.age %></li>
+</ul>
+
+<small><%= link_to "Edit Author", edit_author_path(@author) %> | <%= link_to "Author Posts", author_posts_path(@author) %> | <%= link_to "Delete Author", author_path(@author), method:"delete", data:{confirm: "Are you sure you want to delete \"#{@author.last_name}\" and all his posts?"} %></small>
+</div>

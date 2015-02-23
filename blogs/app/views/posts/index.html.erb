@@ -1,0 +1,13 @@
+<p><%= link_to "Home", authors_path %></p>
+
+<h2><%= @author.first_name + " " + @author.last_name %>'s Posts</h2>
+
+<%= link_to "Add Post", new_author_post_path %> <br><br>
+<div class="container">
+<% @posts.each do |post| %>
+<h3>Title: <%= post.title %>: <small><%= post.category %></small></h3>
+
+<p><%= link_to "Show Post", post_path(post) %> | <%= link_to "Edit Post", edit_post_path(post) %></p>
+<% end %>
+<br>
+</div>

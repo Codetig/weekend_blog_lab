@@ -1,0 +1,21 @@
+<p><%= link_to "Home", authors_path %> / 
+<%= link_to "#{@author.last_name}'s Posts", author_posts_path(@author) %> </p><br>
+
+<% if @post.errors.any? %>
+  <% @post.errors.full_messages.each do |error| %>
+  <p class="text-danger">
+      <%= error %>
+  </p>
+  <% end %>
+  <% end %>
+
+
+<h3>New Post of <%= @author.first_name + " " + @author.last_name %></h3>
+<div class="container">
+<%= form_for [@author, @post] do |f| %>
+<p><%= f.label :title, "Title: " %> <%= f.text_field :title %></p>
+<p><%= f.label :category, "Category: " %> <%= f.text_field :category %></p>
+<p><%= f.label :body, "Post: " %><br> <%= f.text_area :body %></p>
+<%= f.submit "Add Post" %>
+<% end %>
+</div>
